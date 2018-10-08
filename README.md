@@ -2,6 +2,14 @@
 
 This is a basic JSON data validator.
 
+## Features
+
+- Great, easy and flexible configurations
+- Useful in any project
+- Many useful functions
+- User-friendly feedbacks
+- In case of invalid data user-friendly report
+
 ## Installation
 
 This is a [Node.js](https://nodejs.org/en/) module available through the [npm registry](https://www.npmjs.com/).
@@ -17,14 +25,6 @@ npm i --save @ibrokhim.shokirov/json-data-validator
 ```
 
 Check examples below on how to use this package in your project.
-
-## Features
-
-- Great, easy and flexible configurations
-- Useful in any project
-- Many useful functions
-- User-friendly feedbacks
-- In case of invalid data user-friendly report
 
 ## Quick Start
 
