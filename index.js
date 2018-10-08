@@ -1,6 +1,13 @@
 var validator = {
-    // Configuration for data validation
+    // Global data validation configuration
     config: null,
+
+    // Sets global data validation configurations
+    // Returns validator
+    'setConfiguration': function (config) {
+        this.config = config;
+        return this;
+    },
 
     // Returns true if data is valid
     'isValid': function (configName, data) {
@@ -16,8 +23,14 @@ var validator = {
         }
     },
 
+    // Returns true if the object valid according to the given configuration
     'validate': function (conf, data, name = 'data') {
-        var isValid = this.typeChecker[this.getTypeFunction(conf.type)](data);
+        if (this.validate({type: 'object', props: {type: 'string'}}, conf, 'config')) {
+            var isValid = this.typeChecker[this.getTypeFunction(conf.type)](data);
+        } else {
+            console.log('Invalid configuration!');
+            console.log(conf);
+        }
 
         if (!isValid) {
             console.log(
