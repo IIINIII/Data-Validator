@@ -11,9 +11,9 @@ var validator = {
         return this;
     },
 
-    // Prints example configuration
+    // Returns example configuration
     'exampleConfiguration': function () {
-        console.log(exampleConfig);
+        return exampleConfig;
     },
 
     // Returns true if data is valid
