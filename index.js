@@ -52,7 +52,7 @@ var validator = {
                 );
             }
 
-            return isValid;
+            return !!isValid;
         } catch (e) {
             return false;
         }
