@@ -1,0 +1,22 @@
+{
+  "name": "data-validator",
+  "version": "1.0.0",
+  "description": "Great data validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IIINIII/Data-Validator/tree/master"
+  },
+  "keywords": [
+    "data",
+    "validator",
+    "nodejs",
+    "socket",
+    "io"
+  ],
+  "author": "Ibrokhim Shokirov",
+  "license": "GPL-3.0"
+}
