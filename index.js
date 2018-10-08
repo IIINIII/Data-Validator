@@ -5,11 +5,9 @@ var validator = {
     // Returns true if data is valid
     'isValid': function (configName, data) {
         if(!this.config) {
-            console.log(
-                'No configuration assigned!\n' +
-                'Please assign your configuration and try again!\n' +
-                'Example: DataValidator.config = myconfig;'
-            );
+            console.log('No configuration assigned!');
+            console.log('Please assign your configuration and try again!');
+            console.log('Example: dataValidator.config = myconfig;');
         } else {
             return this.validate(this.config[configName], data);
         }
@@ -19,14 +17,12 @@ var validator = {
         var isValid = this.typeChecker[this.getTypeFunction(conf.type)](data);
 
         if (!isValid) {
-            console.log(
-                '-----------Validator Error-----------' +
-                '\nObject Path: ' + name +
-                '\nObject: ' + data +
-                '\nExpected: ' + conf.type +
-                '\nGot: ' + this.getTypeName(data) +
-                '\n-------------------------------------'
-            );
+            console.log('-----------Validator Error-----------');
+            console.log('Object Path: ' + name);
+            console.log('Expected: ' + conf.type);
+            console.log('Got: ' + this.getTypeName(data));
+            console.log('Value: ' + data);
+            console.log('-------------------------------------');
         } else if (conf.props) {
             Object.keys(conf.props).forEach(
                 value => {

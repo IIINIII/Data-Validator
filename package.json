@@ -1,5 +1,5 @@
 {
-  "name": "data-validator",
+  "name": "@ibrokhim.shokirov/data-validator",
   "version": "1.0.0",
   "description": "Great data validator",
   "main": "index.js",
