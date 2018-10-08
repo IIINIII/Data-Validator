@@ -237,7 +237,7 @@ validator.exampleConfiguration();
 
 Returns:
 
-```json
+```javascript
 {
     // A basic object configuration
     'chat_data': {
