@@ -8,10 +8,11 @@ var validator = {
             console.log(
                 'No configuration assigned!' +
                 '\nPlease assign your configuration and try again!' +
-                '\nExample: dataValidator.config = myconfig;'
+                '\nExample: jsonDataValidator.config = myconfig;'
             );
+            return false;
         } else {
-            return this.validate(this.config[configName], data);
+            return !!this.validate(this.config[configName], data);
         }
     },
 
