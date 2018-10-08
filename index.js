@@ -1,4 +1,4 @@
-var exampleConfig = require('example-config');
+var exampleConfig = require('./example-config');
 
 var validator = {
     // Global data validation configuration
