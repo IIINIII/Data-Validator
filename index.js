@@ -32,26 +32,30 @@ var validator = {
 
     // Returns true if the object valid according to the given configuration
     'validate': function (conf, data, name = 'data') {
-        var isValid = this.typeChecker[this.getTypeFunction(conf.type)](data);
+        try {
+            var isValid = this.typeChecker[this.getTypeFunction(conf.type)](data);
 
-        if (!isValid) {
-            console.log(
-                '-----------Validator Error-----------' +
-                '\nObject Path: ' + name +
-                '\nExpected: ' + conf.type +
-                '\nGot: ' + this.getTypeName(data) +
-                '\nValue: ' + data +
-                '\n-------------------------------------'
-            );
-        } else if (conf.props) {
-            Object.keys(conf.props).forEach(
-                value => {
-                    isValid &= this.validate(conf.props[value], data[value], name + '.' + value);
-                }
-            );
+            if (!isValid) {
+                console.log(
+                    '-----------Validator Error-----------' +
+                    '\nObject Path: ' + name +
+                    '\nExpected: ' + conf.type +
+                    '\nGot: ' + this.getTypeName(data) +
+                    '\nValue: ' + data +
+                    '\n-------------------------------------'
+                );
+            } else if (conf.props) {
+                Object.keys(conf.props).forEach(
+                    value => {
+                        isValid &= this.validate(conf.props[value], data[value], name + '.' + value);
+                    }
+                );
+            }
+
+            return isValid;
+        } catch (e) {
+            return false;
         }
-
-        return isValid;
     },
 
     // Returns function name for the type's validator
