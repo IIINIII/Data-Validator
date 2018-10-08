@@ -2,10 +2,6 @@
 
 This is a basic JSON data validator.
 
-	[![NPM Version][npm-image]][npm-url]
-	[![NPM Downloads][downloads-image]][downloads-url]
-	[![Test Coverage][coveralls-image]][coveralls-url]
-
 ## Installation
 
 This is a [Node.js](https://nodejs.org/en/) module available through the [npm registry](https://www.npmjs.com/).
