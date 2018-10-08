@@ -1,6 +1,6 @@
 {
   "name": "@ibrokhim.shokirov/json-data-validator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Great data validator",
   "main": "index.js",
   "scripts": {
