@@ -1,3 +1,5 @@
+var exampleConfig = require('example-config');
+
 var validator = {
     // Global data validation configuration
     config: null,
@@ -7,6 +9,11 @@ var validator = {
     'setConfiguration': function (config) {
         this.config = config;
         return this;
+    },
+
+    // Prints example configuration
+    'exampleConfiguration': function () {
+        console.log(exampleConfig);
     },
 
     // Returns true if data is valid
