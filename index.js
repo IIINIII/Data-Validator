@@ -25,7 +25,7 @@ var validator = {
 
     // Returns true if the object valid according to the given configuration
     'validate': function (conf, data, name = 'data') {
-        if (this.validate({type: 'object', props: {type: 'string'}}, conf, 'config')) {
+        if (this.validate({type: 'object', props: {type: {type: 'string'}}}, conf, 'config')) {
             var isValid = this.typeChecker[this.getTypeFunction(conf.type)](data);
         } else {
             console.log('Invalid configuration!');
