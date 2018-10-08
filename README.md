@@ -12,7 +12,7 @@ Installation is done using the [`npm install` command](https://docs.npmjs.com/ge
 
 ```bash
 npm install --save @ibrokhim.shokirov/json-data-validator
-#or
+# or
 npm i --save @ibrokhim.shokirov/json-data-validator
 ```
 
@@ -60,7 +60,58 @@ If you prefer to use new configuration each time you validate a data, you can do
 validator.validate(my_config, data); // Returns true if data is valid
 ```
 
-## Examples
+## Example Configuration
+
+You can get an example configuration object in JSON format by running command below:
+
+```javascript
+validator.exampleConfiguration();
+```
+
+Returns:
+
+```javascript
+{
+    // A basic object configuration
+    'chat_data': {
+        type: 'object',
+        props: {
+            to: {type: 'string'},
+            from: {type: 'string'},
+            msg: {type: 'string'}
+        }
+    },
+
+    // A basic string configuration
+    'username': {
+        type: 'string'
+    },
+
+    // A basic number configuration
+    'age': {
+        type: 'number'
+    },
+
+    // A little bit more complex configuration
+    'user_data_complex': {
+        type: 'object',
+        props: {
+            name: {type: 'string'},
+            surname: {type: 'string'},
+            isActive: {type: 'boolean'},
+            contact_info: {
+                type: 'object',
+                props: {
+                    email: {type: 'string'},
+                    phone: {type: 'string'}
+                }
+            }
+        }
+    }
+}
+```
+
+## Usage Examples
 
 Example using a simple configuration:
 
@@ -227,55 +278,6 @@ false
 
 Test #4:
 true
-```
-
-You can also get an example configuration object in JSON format by running command below:
-
-```javascript
-validator.exampleConfiguration();
-```
-
-Returns:
-
-```javascript
-{
-    // A basic object configuration
-    'chat_data': {
-        type: 'object',
-        props: {
-            to: {type: 'string'},
-            from: {type: 'string'},
-            msg: {type: 'string'}
-        }
-    },
-
-    // A basic string configuration
-    'username': {
-        type: 'string'
-    },
-
-    // A basic number configuration
-    'age': {
-        type: 'number'
-    },
-
-    // A little bit more complex configuration
-    'user_data_complex': {
-        type: 'object',
-        props: {
-            name: {type: 'string'},
-            surname: {type: 'string'},
-            isActive: {type: 'boolean'},
-            contact_info: {
-                type: 'object',
-                props: {
-                    email: {type: 'string'},
-                    phone: {type: 'string'}
-                }
-            }
-        }
-    }
-}
 ```
 
 ## License
