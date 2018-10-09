@@ -53,9 +53,7 @@ var validator = {
             } else if (conf.props) {
                 Object.keys(conf.props).forEach(
                     value => {
-                        if(!this.validate(conf.props[value], data[value], name + '.' + value)){
-                            return false;
-                        }
+                        isValid &= this.validate(conf.props[value], data[value], name + '.' + value);
                     }
                 );
             }
