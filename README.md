@@ -4,7 +4,8 @@ This is a basic JSON data validator.
 
 ## Features
 
-- Great, easy and flexible configurations
+- Verbose validation results **(NEW)**
+- Great, easy to use and flexible configurations
 - Useful in any project
 - Many useful functions
 - User-friendly feedbacks
@@ -46,6 +47,12 @@ Add your configuration to the validator:
 validator.config = my_config;
 // or
 validator.setConfiguration(my_config);
+```
+
+If you want verbose result, then:
+
+```javascript
+validator.verbose = true; // dafault: false
 ```
 
 And now it is time to validate our data:
@@ -129,6 +136,7 @@ var config = {
     },
 };
 
+validator.verbose = true;
 validator.setConfiguration(config);
 
 console.log('Test #1:');
@@ -180,7 +188,7 @@ Example using much more complex configuration:
 
 ```javascript
 var validator = require('@ibrokhim.shokirov/json-data-validator');
-var config {
+var config = {
     'user_detail': {
         type: 'object',
             props: {
@@ -198,6 +206,7 @@ var config {
     }
 };
 
+validator.verbose = true;
 validator.setConfiguration(config);
 
 console.log('Test #1:');
@@ -279,6 +288,50 @@ false
 Test #4:
 true
 ```
+
+Example using single-use configuration:
+
+```javascript
+var validator = require('@ibrokhim.shokirov/json-data-validator');
+
+var singleUseConfig = {
+    type: 'object',
+    props: {
+        name: {type: 'string'},
+        surname: {type: 'string'},
+        isActive: {type: 'boolean'},
+        contact_info: {
+            type: 'object',
+            props: {
+                email: {type: 'string'},
+                phone: {type: 'string'}
+            }
+        }
+    }
+};
+
+var data = {
+    'name': 'Tom',
+    'surname': 'Jerry',
+    'isActive': true,
+    contact_info: {
+        'email': 'tom.jerry@example.com',
+        'phone': '5556667777'
+    }
+};
+
+console.log(
+    validator.validate(singleUseConfig, data)
+);
+```
+
+Output:
+
+```
+true
+```
+
+
 
 ## License
 

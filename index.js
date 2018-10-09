@@ -4,6 +4,9 @@ var validator = {
     // Global data validation configuration
     config: null,
 
+    // Verbose settings
+    verbose: false,
+
     // Sets global data validation configurations
     // Returns validator
     'setConfiguration': function (config) {
@@ -36,18 +39,23 @@ var validator = {
             var isValid = this.typeChecker[this.getTypeFunction(conf.type)](data);
 
             if (!isValid) {
-                console.log(
-                    '-----------Validator Error-----------' +
-                    '\nObject Path: ' + name +
-                    '\nExpected: ' + conf.type +
-                    '\nGot: ' + this.getTypeName(data) +
-                    '\nValue: ' + data +
-                    '\n-------------------------------------'
-                );
+                if(this.verbose) {
+                    console.log(
+                        '-----------Validator Error-----------' +
+                        '\nObject Path: ' + name +
+                        '\nExpected: ' + conf.type +
+                        '\nGot: ' + this.getTypeName(data) +
+                        '\nValue: ' + data +
+                        '\n-------------------------------------'
+                    );
+                }
+                return false;
             } else if (conf.props) {
                 Object.keys(conf.props).forEach(
                     value => {
-                        isValid &= this.validate(conf.props[value], data[value], name + '.' + value);
+                        if(!this.validate(conf.props[value], data[value], name + '.' + value)){
+                            return false;
+                        }
                     }
                 );
             }
